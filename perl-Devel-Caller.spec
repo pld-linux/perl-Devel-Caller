@@ -6,7 +6,7 @@
 %define	pdir	Devel
 %define	pnam	Caller
 Summary:	Devel::Caller - meatier versions of C<caller>
-#Summary(pl):	
+Summary(pl):	Devel::Caller - tre¶ciwsza wersja C<caller>
 Name:		perl-Devel-Caller
 Version:	0.08
 Release:	1
@@ -24,10 +24,10 @@ BuildRequires:	perl-Test-Simple
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Devel::Caller - meatier versions of C<caller>.
+Devel::Caller Perl module - meatier versions of C<caller>.
 
-# %description -l pl
-# TODO
+%description -l pl
+Modu³ Perla Devel::Caller - tre¶ciwsza wersja C<caller>.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
