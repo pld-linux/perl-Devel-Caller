@@ -1,25 +1,26 @@
-#
+
 # Conditional build:
-# _without_tests - do not perform "make test"
-#
+%bcond_without	tests	# do not perform "make test"
+
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Devel
 %define	pnam	Caller
 Summary:	Devel::Caller - meatier versions of C<caller>
 Summary(pl):	Devel::Caller - tre¶ciwsza wersja C<caller>
 Name:		perl-Devel-Caller
-Version:	0.08
+Version:	0.09
 Release:	1
 # same as perl
 License:	GPL/Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	fd2708cd60d1a24edf7fdf53438c725d
+# Source0-md5:	b510d88edf40e368cbc4d659fc6c7bd0
 BuildRequires:	perl-devel >= 5.6
 BuildRequires:	rpm-perlprov >= 4.1-13
-%if %{!?_without_tests:1}0
+BuildRequires:	perl-Module-Build >= 0.20
+%if %{?with tests}
 BuildRequires:	perl-PadWalker
-BuildRequires:	perl-Test-Simple
+BuildRequires:	perl(Test::More)
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -33,17 +34,17 @@ Modu³ Perla Devel::Caller - tre¶ciwsza wersja C<caller>.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Makefile.PL \
-	INSTALLDIRS=vendor
-%{__make} OPTIMIZE="%{rpmcflags}"
+%{__perl} Build.PL \
+	installdirs=vendor \
+	destdir=$RPM_BUILD_ROOT
+./Build
 
-%{!?_without_tests:%{__make} test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+./Build install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
