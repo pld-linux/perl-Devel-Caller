@@ -5,13 +5,13 @@
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Devel
 %define	pnam	Caller
-Summary:	Devel::Caller - meatier versions of perl function "caller"
+Summary:	Devel::Caller - meatier versions of Perl function "caller"
 Summary(pl):	Devel::Caller - tre¶ciwsza wersja perlowej funkcji "caller"
 Name:		perl-Devel-Caller
 Version:	0.09
 Release:	1
 # same as perl
-License:	GPL/Artistic
+License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	b510d88edf40e368cbc4d659fc6c7bd0
@@ -25,10 +25,12 @@ BuildRequires:	perl(Test::More)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Devel::Caller Perl module - meatier versions of caller.
+Devel::Caller Perl module provides meatier versions of "caller"
+function.
 
 %description -l pl
-Modu³ Perla Devel::Caller - tre¶ciwsza wersja caller.
+Modu³ Perla Devel::Caller udostêpnia tre¶ciwsz± wersjê funkcji
+"caller".
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
