@@ -5,8 +5,8 @@
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Devel
 %define	pnam	Caller
-Summary:	Devel::Caller - meatier versions of C<caller>
-Summary(pl):	Devel::Caller - tre¶ciwsza wersja C<caller>
+Summary:	Devel::Caller - meatier versions of perl function "caller"
+Summary(pl):	Devel::Caller - tre¶ciwsza wersja perlowej funkcji "caller"
 Name:		perl-Devel-Caller
 Version:	0.09
 Release:	1
@@ -17,7 +17,7 @@ Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version
 # Source0-md5:	b510d88edf40e368cbc4d659fc6c7bd0
 BuildRequires:	perl-devel >= 5.6
 BuildRequires:	rpm-perlprov >= 4.1-13
-BuildRequires:	perl-Module-Build >= 0.20
+BuildRequires:	perl-Module-Build >= 0.21-2
 %if %{with tests}
 BuildRequires:	perl-PadWalker
 BuildRequires:	perl(Test::More)
@@ -25,10 +25,10 @@ BuildRequires:	perl(Test::More)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Devel::Caller Perl module - meatier versions of C<caller>.
+Devel::Caller Perl module - meatier versions of caller.
 
 %description -l pl
-Modu³ Perla Devel::Caller - tre¶ciwsza wersja C<caller>.
+Modu³ Perla Devel::Caller - tre¶ciwsza wersja caller.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -36,14 +36,14 @@ Modu³ Perla Devel::Caller - tre¶ciwsza wersja C<caller>.
 %build
 %{__perl} Build.PL \
 	installdirs=vendor \
-	destdir=$RPM_BUILD_ROOT
+	destdir=$RPM_BUILD_ROOT \
+	config='optimize=%{rpmcflags}'
 ./Build
 
 %{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 ./Build install
 
 %clean
