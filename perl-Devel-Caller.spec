@@ -1,6 +1,6 @@
 
 # Conditional build:
-%bcond_without	tests	# do not perform "make test"
+%bcond_with	tests	# do perform "make test"
 
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Devel
@@ -40,7 +40,7 @@ Modu³ Perla Devel::Caller - tre¶ciwsza wersja caller.
 	config='optimize=%{rpmcflags}'
 ./Build
 
-%{?with_tests:%{__make} test}
+%{?with_tests:./Build test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
