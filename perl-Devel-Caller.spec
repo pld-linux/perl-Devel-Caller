@@ -3,8 +3,8 @@
 %bcond_with	tests	# do perform "make test"
 
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	Devel
-%define	pnam	Caller
+%define		pdir	Devel
+%define		pnam	Caller
 Summary:	Devel::Caller - meatier versions of Perl function "caller"
 Summary(pl):	Devel::Caller - tre¶ciwsza wersja perlowej funkcji "caller"
 Name:		perl-Devel-Caller
