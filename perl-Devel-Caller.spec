@@ -18,7 +18,7 @@ Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version
 BuildRequires:	perl-devel >= 5.6
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	perl-Module-Build >= 0.20
-%if %{?with tests}
+%if %{with tests}
 BuildRequires:	perl-PadWalker
 BuildRequires:	perl(Test::More)
 %endif
