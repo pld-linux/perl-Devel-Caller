@@ -6,7 +6,7 @@
 %define		pdir	Devel
 %define		pnam	Caller
 Summary:	Devel::Caller - meatier versions of Perl function "caller"
-Summary(pl):	Devel::Caller - tre¶ciwsza wersja perlowej funkcji "caller"
+Summary(pl.UTF-8):   Devel::Caller - treÅ›ciwsza wersja perlowej funkcji "caller"
 Name:		perl-Devel-Caller
 Version:	0.09
 Release:	1
@@ -28,8 +28,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Devel::Caller Perl module provides meatier versions of "caller"
 function.
 
-%description -l pl
-Modu³ Perla Devel::Caller udostêpnia tre¶ciwsz± wersjê funkcji
+%description -l pl.UTF-8
+ModuÅ‚ Perla Devel::Caller udostÄ™pnia treÅ›ciwszÄ… wersjÄ™ funkcji
 "caller".
 
 %prep
