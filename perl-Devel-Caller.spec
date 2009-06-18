@@ -8,19 +8,17 @@
 Summary:	Devel::Caller - meatier versions of Perl function "caller"
 Summary(pl.UTF-8):	Devel::Caller - treściwsza wersja perlowej funkcji "caller"
 Name:		perl-Devel-Caller
-Version:	0.09
-Release:	2
+Version:	2.03
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	b510d88edf40e368cbc4d659fc6c7bd0
+# Source0-md5:	54f6fcee85877c035d79c0c5c4f6403f
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-BuildRequires:	perl-Module-Build >= 0.21-2
 %if %{with tests}
-BuildRequires:	perl-PadWalker
-BuildRequires:	perl(Test::More)
+BuildRequires:	perl-PadWalker >= 0.08
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -36,25 +34,29 @@ Moduł Perla Devel::Caller udostępnia treściwszą wersję funkcji
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Build.PL \
-	installdirs=vendor \
-	destdir=$RPM_BUILD_ROOT \
-	config='optimize=%{rpmcflags}'
-./Build
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
 
-%{?with_tests:./Build test}
+%{__make} \
+	CC="%{__cc}" \
+	OPTIMIZE="%{rpmcflags}"
+
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-./Build install
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{perl_vendorarch}/%{pdir}/*.pm
-%dir %{perl_vendorarch}/auto/%{pdir}/%{pnam}
-%attr(755,root,root) %{perl_vendorarch}/auto/%{pdir}/%{pnam}/*.so
-%{perl_vendorarch}/auto/%{pdir}/%{pnam}/*.bs
+%doc Changes
+%{perl_vendorarch}/Devel/*.pm
+%dir %{perl_vendorarch}/auto/Devel/Caller
+%{perl_vendorarch}/auto/Devel/Caller/*.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Devel/Caller/*.so
 %{_mandir}/man3/*
