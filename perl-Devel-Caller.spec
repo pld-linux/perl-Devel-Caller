@@ -57,6 +57,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes
 %{perl_vendorarch}/Devel/*.pm
 %dir %{perl_vendorarch}/auto/Devel/Caller
-%{perl_vendorarch}/auto/Devel/Caller/*.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Devel/Caller/*.so
 %{_mandir}/man3/*
