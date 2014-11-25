@@ -2,9 +2,9 @@
 # Conditional build:
 %bcond_with	tests	# do perform "make test"
 
-%include	/usr/lib/rpm/macros.perl
 %define		pdir	Devel
 %define		pnam	Caller
+%include	/usr/lib/rpm/macros.perl
 Summary:	Devel::Caller - meatier versions of Perl function "caller"
 Summary(pl.UTF-8):	Devel::Caller - treściwsza wersja perlowej funkcji "caller"
 Name:		perl-Devel-Caller
@@ -15,6 +15,7 @@ License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	2d197318ce8e8d736f23b7f751e8b093
+URL:		http://search.cpan.org/dist/Devel-Caller/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
