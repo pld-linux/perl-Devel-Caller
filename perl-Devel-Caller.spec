@@ -4,7 +4,6 @@
 
 %define		pdir	Devel
 %define		pnam	Caller
-%include	/usr/lib/rpm/macros.perl
 Summary:	Devel::Caller - meatier versions of Perl function "caller"
 Summary(pl.UTF-8):	Devel::Caller - treściwsza wersja perlowej funkcji "caller"
 Name:		perl-Devel-Caller
