@@ -8,7 +8,7 @@ Summary:	Devel::Caller - meatier versions of Perl function "caller"
 Summary(pl.UTF-8):	Devel::Caller - treściwsza wersja perlowej funkcji "caller"
 Name:		perl-Devel-Caller
 Version:	2.06
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
