@@ -7,16 +7,17 @@
 Summary:	Devel::Caller - meatier versions of Perl function "caller"
 Summary(pl.UTF-8):	Devel::Caller - treściwsza wersja perlowej funkcji "caller"
 Name:		perl-Devel-Caller
-Version:	2.06
-Release:	3
+Version:	2.07
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Devel/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	af52f47979b3c9358af9e5d8c283f263
+Source0:	https://www.cpan.org/modules/by-module/Devel/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	29c5c2e4e46b508debf85525ac35c8e5
 URL:		https://metacpan.org/dist/Devel-Caller
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
 BuildRequires:	perl-PadWalker >= 0.08
 BuildRequires:	perl-Test-Simple
